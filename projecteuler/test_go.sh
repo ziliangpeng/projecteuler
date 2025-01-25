@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# may be a good idea to refer to this file as correct answer to check against
+# https://raw.githubusercontent.com/lucky-bai/projecteuler-solutions/refs/heads/master/Solutions.md
+
 assert() {
     if [ "$1" == "$2" ]; then
         printf "\033[32mCorrect\033[0m\n"
@@ -14,12 +17,12 @@ for file in *.go; do
         echo "Problem $number:"
     else continue
     fi
-
+    
     if [ ! -f "$number.yes" ]; then
         printf "\033[37mnull\033[0m\n"
         continue
     fi
-
+    
     # find a way to time it
     result=$(go run $number.go prime.go | tail -n 1)
     expected=$(cat $number.yes)
